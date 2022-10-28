@@ -53,6 +53,10 @@ const name = document.querySelector("#name");
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", generateInsult);
 
+function renderIndex(arr) {
+  return Math.floor(Math.random() * arr.length);
+}
+
 let removedItem = [];
 
 function generateInsult() {
@@ -64,17 +68,9 @@ function generateInsult() {
   }
   citat.innerHTML = insults[index].insult;
   name.innerHTML = insults[index].play;
-
-  // console.log(" insults array: ", insults);
-  // console.log(" The insult ", insults[index]);
-
   removedItem.push(insults[index]);
-  // console.log("Removed Items list:", removedItem);
   insults.splice(index, 1);
-  // console.log(" Insults Array AFTER splice", insults[index]);
 }
-// console.log(generateInsult());
-
 window.onload = function () {
   btn.click();
 };
